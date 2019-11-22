@@ -36,9 +36,9 @@ func resolveNullableInt(p graphql.ResolveParams) (interface{}, error) {
 		return nil, fmt.Errorf("Missing field: %v", fieldName)
 	}
 
-	nullString := f.Interface().(sql.NullInt64)
-	if nullString.Valid {
-		return nullString.Int64, nil
+	nullInt := f.Interface().(sql.NullInt64)
+	if nullInt.Valid {
+		return nullInt.Int64, nil
 	}
 
 	return nil, nil
